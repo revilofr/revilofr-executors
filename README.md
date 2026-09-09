@@ -15,21 +15,20 @@ and installing when possible, those dependencies).
 - [`executors/jabra-battery-status`](executors/jabra-battery-status/README.md) —
   battery level of a Jabra headset.
 
-Other commands can be added as Executor active commands without living in
-this repo, e.g. the sync health indicator from
-[drivesync](https://github.com/revilofr/drivesync) — a `rclone`-based CLI
-(also by revilofr) that syncs local folders to Google Drive on Linux, and
-already ships its own Executor indicator:
-
-```text
-/home/olivier/scripts/drivesync/.venv/bin/drivesync status --executor
-```
-
 ## Example
 
 Combining the executors above as active commands in GNOME Executor:
 
 ![Example status bar](docs/example-status-bar.png)
+
+The cloud icon with a colored dot (☁️ 🟢) isn't from this repo: it's the
+sync health indicator from [drivesync](https://github.com/revilofr/drivesync) —
+a `rclone`-based CLI (also by revilofr) that syncs local folders to Google
+Drive on Linux, and ships its own Executor indicator:
+
+```text
+/home/olivier/scripts/drivesync/.venv/bin/drivesync status --executor
+```
 
 Each command is configured as an active command in the Executor preferences
 (right-click the extension icon → Preferences), with an interval in seconds:
