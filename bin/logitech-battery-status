@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# find_percentage <model-pattern>: locate the UPower device whose model matches
+# the pattern (device index/path is not stable across sleep/reconnect) and
+# print its battery percentage.
+find_percentage() {
+    local pattern="$1" path model
+    while IFS= read -r path; do
+        [ -z "$path" ] && continue
+        model="$(upower -i "$path" 2>/dev/null | awk -F': *' '/model:/ {print $2; exit}')"
+        if [[ "$model" == *"$pattern"* ]]; then
+            upower -i "$path" 2>/dev/null | awk '/percentage:/ {print $2; exit}'
+            return
+        fi
+    done < <(upower -e 2>/dev/null)
+}
+
+mouse="$(find_percentage "MX Anywhere")"
+keyboard="$(find_percentage "MX Keys")"
+
+[ -z "$mouse" ] && mouse="--"
+[ -z "$keyboard" ] && keyboard="--"
+
+printf '🖱️ %s   ⌨️ %s\n' "$mouse" "$keyboard"
