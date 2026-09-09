@@ -4,32 +4,35 @@ A collection of small shell scripts to display hardware status indicators in
 the GNOME system bar via the [Executor](https://extensions.gnome.org/extension/2932/executor/)
 extension.
 
-## Scripts
+# gnome-executors
 
-### `bin/logitech-battery-status`
+A collection of small shell scripts to display hardware status indicators in
+the GNOME system bar via the [Executor](https://extensions.gnome.org/extension/2932/executor/)
+extension.
 
-Prints the battery level of a Logitech mouse and keyboard connected via the
-HID++ / Bluetooth stack, using `upower`.
+Each executor lives in its own folder under `executors/`, with its own
+`README.md` (documenting its dependencies) and `prerequisites.sh` (checking,
+and installing when possible, those dependencies).
 
-Devices are looked up by **model name** (e.g. `MX Anywhere`, `MX Keys`)
-instead of a fixed UPower device path, because the device index/path is not
-stable across suspend/resume or reconnection.
+## Executors
 
-Output example:
+- [`executors/logitech-battery-status`](executors/logitech-battery-status/README.md) —
+  battery level of a Logitech mouse and keyboard.
+- [`executors/jabra-battery-status`](executors/jabra-battery-status/README.md) —
+  battery level of a Jabra headset.
 
-```text
-🖱️ 90%   ⌨️ 90%
-```
+## Example
 
-If a device is not found, `--` is shown instead of a percentage.
+Combining the executors above as active commands in GNOME Executor:
+
+![Example status bar](docs/example-status-bar.png)
 
 ## Install
 
 ```bash
-./install.sh
+./prerequisites.sh   # check/install each executor's dependencies
+./install.sh          # symlink each executor script into ~/.local/bin
 ```
-
-This symlinks every script in `bin/` into `~/.local/bin`.
 
 ## Usage with GNOME Executor
 
@@ -42,3 +45,4 @@ installed script, e.g.:
 
 Set an interval (in seconds) matching how often you want the status
 refreshed, e.g. 60 seconds.
+

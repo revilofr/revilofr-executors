@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+out="$(jabridge battery 2>/dev/null)"
+
+if echo "$out" | grep -qE '[0-9]+%'; then
+    pct="$(echo "$out" | grep -oE '[0-9]+%' | head -1)"
+    printf '🎧 %s\n' "$pct"
+else
+    printf '🎧 --\n'
+fi
