@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 EXECUTORS_DIR="$SCRIPT_DIR/executors"
 BIN_DIR="$HOME/.local/bin"
 
-echo "Installing gnome-executors scripts (local/dev mode)..."
+echo "Installing revilofr-executors scripts (local/dev mode)..."
 
 mkdir -p "$BIN_DIR"
 

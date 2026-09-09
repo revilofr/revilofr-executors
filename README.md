@@ -1,10 +1,4 @@
-# gnome-executors
-
-A collection of small shell scripts to display hardware status indicators in
-the GNOME system bar via the [Executor](https://extensions.gnome.org/extension/2932/executor/)
-extension.
-
-# gnome-executors
+# revilofr-executors
 
 A collection of small shell scripts to display hardware status indicators in
 the GNOME system bar via the [Executor](https://extensions.gnome.org/extension/2932/executor/)
@@ -40,7 +34,7 @@ In Executor, add an active command to the status area, pointing to the
 installed script, e.g.:
 
 ```text
-/home/olivier/.local/bin/logitech-battery-status
+/home/yourname/.local/bin/logitech-battery-status
 ```
 
 Set an interval (in seconds) matching how often you want the status
