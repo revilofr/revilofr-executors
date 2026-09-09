@@ -16,8 +16,10 @@ and installing when possible, those dependencies).
   battery level of a Jabra headset.
 
 Other commands can be added as Executor active commands without living in
-this repo, e.g. the sync health indicator from the
-[drivesync](https://github.com/revilofr/drivesync) project:
+this repo, e.g. the sync health indicator from
+[drivesync](https://github.com/revilofr/drivesync) — a `rclone`-based CLI
+(also by revilofr) that syncs local folders to Google Drive on Linux, and
+already ships its own Executor indicator:
 
 ```text
 /home/olivier/scripts/drivesync/.venv/bin/drivesync status --executor
