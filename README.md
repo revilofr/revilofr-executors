@@ -8,6 +8,8 @@ Each executor lives in its own folder under `executors/`, with its own
 `README.md` (documenting its dependencies) and `prerequisites.sh` (checking,
 and installing when possible, those dependencies).
 
+Want to add your own executor? See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Executors
 
 - [`executors/logitech-battery-status`](executors/logitech-battery-status/README.md) —
@@ -60,7 +62,7 @@ Set an interval (in seconds) matching how often you want the status
 refreshed, e.g. 60 seconds.
 
 See the [Executor extension page](https://extensions.gnome.org/extension/2932/executor/)
-and its [official documentation](https://github.com/aunetx/executor) for
+and its [official documentation](https://raujonas.github.io/executor/) for
 details on adding/configuring active commands, custom colors and styling
 options beyond what is shown in the example above.
 
