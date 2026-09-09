@@ -15,11 +15,29 @@ and installing when possible, those dependencies).
 - [`executors/jabra-battery-status`](executors/jabra-battery-status/README.md) —
   battery level of a Jabra headset.
 
+Other commands can be added as Executor active commands without living in
+this repo, e.g. the sync health indicator from the
+[drivesync](https://github.com/revilofr/drivesync) project:
+
+```text
+/home/olivier/scripts/drivesync/.venv/bin/drivesync status --executor
+```
+
 ## Example
 
 Combining the executors above as active commands in GNOME Executor:
 
 ![Example status bar](docs/example-status-bar.png)
+
+Each command is configured as an active command in the Executor preferences
+(right-click the extension icon → Preferences), with an interval in seconds:
+
+![Example Executor configuration](docs/executor-config-example.png)
+
+See the [Executor extension page](https://extensions.gnome.org/extension/2932/executor/)
+and its [official documentation](https://github.com/aunetx/executor) for the
+full list of preferences (position, columns, colors, styling) beyond what is
+shown above.
 
 ## Install
 
@@ -39,4 +57,10 @@ installed script, e.g.:
 
 Set an interval (in seconds) matching how often you want the status
 refreshed, e.g. 60 seconds.
+
+See the [Executor extension page](https://extensions.gnome.org/extension/2932/executor/)
+and its [official documentation](https://github.com/aunetx/executor) for
+details on adding/configuring active commands, custom colors and styling
+options beyond what is shown in the example above.
+
 
