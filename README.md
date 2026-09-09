@@ -38,7 +38,7 @@ Each command is configured as an active command in the Executor preferences
 ![Example Executor configuration](docs/executor-config-example.png)
 
 See the [Executor extension page](https://extensions.gnome.org/extension/2932/executor/)
-and its [official documentation](https://github.com/aunetx/executor) for the
+and its [official documentation](https://raujonas.github.io/executor/) for the
 full list of preferences (position, columns, colors, styling) beyond what is
 shown above.
 
@@ -65,5 +65,14 @@ See the [Executor extension page](https://extensions.gnome.org/extension/2932/ex
 and its [official documentation](https://raujonas.github.io/executor/) for
 details on adding/configuring active commands, custom colors and styling
 options beyond what is shown in the example above.
+
+## Credits
+
+This project only depends on [Executor](https://github.com/raujonas/executor)
+(by [raujonas](https://github.com/raujonas), documented at
+https://raujonas.github.io/executor/) as an external GNOME Shell extension —
+no code from it is bundled or redistributed here, so this repo's MIT license
+does not conflict with it. Many thanks to raujonas and contributors for the
+extension itself.
 
 
