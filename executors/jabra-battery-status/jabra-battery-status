@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 
-out="$(jabridge battery 2>/dev/null)"
+out="$(jabridge battery 2>/dev/null || true)"
+
+if ! echo "$out" | grep -qE '[0-9]+%'; then
+    # Fallback for direct Bluetooth pairing (without Jabra USB/dongle visibility).
+    while read -r _ mac name_rest; do
+        [[ "$name_rest" == *Jabra* ]] || continue
+        info="$(bluetoothctl info "$mac" 2>/dev/null || true)"
+        pct_bt="$(echo "$info" | awk -F'[()]' '/Battery Percentage:/ { print $2"%"; exit }')"
+        if [[ -n "$pct_bt" ]]; then
+            out="$pct_bt"
+            break
+        fi
+    done < <(bluetoothctl devices Connected 2>/dev/null || true)
+fi
 
 if echo "$out" | grep -qE '[0-9]+%'; then
     pct="$(echo "$out" | grep -oE '[0-9]+%' | head -1)"
